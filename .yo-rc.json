@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "IvyModa",
+    "buildTool": "maven",
+    "cacheProvider": "caffeine",
+    "clientFramework": "react",
+    "clientTestFrameworks": [],
+    "clientTheme": "none",
+    "creationTimestamp": 1775119491608,
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "enableHibernateCache": true,
+    "enableTranslation": true,
+    "entities": [],
+    "feignClient": null,
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "NDE2ZTQ4M2I3YWFlNmRkZmZlMjViMDRkZmI4YjRkM2Y4NWI2MmMwNjc0MzNmNjcxMWM2NzVjZWRjNmY5YzMwZWY0NjkwZjRmOTVhYWNkNTUwMTU0NTJhMWU4ZGJmN2YwMGEyMTgwMjgyMWZjOTZiODMwZDlhZTE4MmM1MGIxYTg=",
+    "languages": ["en"],
+    "microfrontend": null,
+    "microfrontends": [],
+    "nativeLanguage": "en",
+    "packageName": "com.ivymoda",
+    "prodDatabaseType": "mssql",
+    "reactive": false,
+    "serverPort": null,
+    "serviceDiscoveryType": null,
+    "syncUserWithIdp": null,
+    "testFrameworks": [],
+    "withAdminUi": true
+  }
+}
