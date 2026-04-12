@@ -46,6 +46,21 @@ public class CacheConfiguration {
             createCache(cm, ivymoda.domain.User.class.getName());
             createCache(cm, ivymoda.domain.Authority.class.getName());
             createCache(cm, ivymoda.domain.User.class.getName() + ".authorities");
+            createCache(cm, ivymoda.domain.Role.class.getName());
+            createCache(cm, ivymoda.domain.Role.class.getName() + ".permissions");
+            createCache(cm, ivymoda.domain.Permission.class.getName());
+            createCache(cm, ivymoda.domain.Permission.class.getName() + ".roles");
+            createCache(cm, ivymoda.domain.UserAccount.class.getName());
+            createCache(cm, ivymoda.domain.Cart.class.getName());
+            createCache(cm, ivymoda.domain.Cart.class.getName() + ".items");
+            createCache(cm, ivymoda.domain.CartItem.class.getName());
+            createCache(cm, ivymoda.domain.Product.class.getName());
+            createCache(cm, ivymoda.domain.ProductVariant.class.getName());
+            createCache(cm, ivymoda.domain.Category.class.getName());
+            createCache(cm, ivymoda.domain.Notification.class.getName());
+            createCache(cm, ivymoda.domain.Order.class.getName());
+            createCache(cm, ivymoda.domain.Order.class.getName() + ".items");
+            createCache(cm, ivymoda.domain.OrderItem.class.getName());
             // jhipster-needle-caffeine-add-entry
         };
     }

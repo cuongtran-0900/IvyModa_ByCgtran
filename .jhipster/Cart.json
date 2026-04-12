@@ -1,0 +1,32 @@
+{
+  "annotations": {
+    "changelogDate": "20260412230123"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "createAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Cart",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "userAccount",
+      "relationshipName": "user",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "cartItem",
+      "otherEntityRelationshipName": "cart",
+      "relationshipName": "items",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

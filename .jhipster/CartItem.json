@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20260412230124"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "CartItem",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "productVariant",
+      "relationshipName": "productVariant",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cart",
+      "otherEntityRelationshipName": "items",
+      "relationshipName": "cart",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
