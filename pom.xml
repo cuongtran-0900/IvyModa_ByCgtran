@@ -80,6 +80,12 @@
     </properties>
 
     <dependencies>
+                  <!--      thư viện H2 để test DB-->
+        <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>

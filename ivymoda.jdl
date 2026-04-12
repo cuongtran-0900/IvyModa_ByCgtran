@@ -1,0 +1,137 @@
+entity Role {
+  name String required
+  description String
+}
+
+entity Permission {
+  name String required
+  description String
+}
+
+entity UserAccount {
+  name String
+  email String required unique
+  password String required
+  address String
+  isActive Boolean
+}
+
+entity Cart {
+  createAt Instant
+}
+
+entity CartItem {
+  quantity Integer required
+}
+
+entity Product {
+  name String required
+  slug String required unique
+  brand String required
+  introduce String
+  createAt Instant required
+  updateAt Instant required
+  isActive Boolean required
+}
+
+entity ProductVariant {
+  productSize String required
+  color String required
+  price BigDecimal required
+  stock Integer required
+  imageUrl String required
+  isActive Boolean required
+}
+
+entity Category {
+  name String required
+  slug String required unique
+  isActive Boolean required
+}
+
+entity Notification {
+  type String required
+  content String
+  createAt Instant required
+  isRead Boolean required
+}
+
+entity Order {
+  totalAmount BigDecimal required
+  status String required
+  paymentMethod String required
+  shippingAddress String required
+}
+
+entity OrderItem {
+  quantity Integer required
+  price BigDecimal required
+}
+
+/* ===================== RELATIONSHIPS ===================== */
+
+// Role - Permission (many-to-many)
+relationship ManyToMany {
+  Role{permissions} to Permission{roles}
+}
+
+// User - Role
+relationship ManyToOne {
+  UserAccount{role} to Role
+}
+
+// User - Cart (1-1)
+relationship OneToOne {
+  Cart{user} to UserAccount
+}
+
+// Cart - CartItem
+relationship OneToMany {
+  Cart{items} to CartItem{cart}
+}
+
+// CartItem - ProductVariant
+relationship ManyToOne {
+  CartItem{productVariant} to ProductVariant
+}
+
+// Product - Category
+relationship ManyToOne {
+  Product{category} to Category
+}
+
+// ProductVariant - Product
+relationship ManyToOne {
+  ProductVariant{product} to Product
+}
+
+// Category self reference (parent)
+relationship ManyToOne {
+  Category{parent} to Category
+}
+
+// Order - User
+relationship ManyToOne {
+  Order{user} to UserAccount
+}
+
+// Order - OrderItem
+relationship OneToMany {
+  Order{items} to OrderItem{order}
+}
+
+// OrderItem - ProductVariant
+relationship ManyToOne {
+  OrderItem{productVariant} to ProductVariant
+}
+
+// Notification - Order
+relationship ManyToOne {
+  Notification{order} to Order
+}
+
+/* ===================== OPTIONS ===================== */
+
+dto * with mapstruct
+service * with serviceImpl
+paginate * with pagination

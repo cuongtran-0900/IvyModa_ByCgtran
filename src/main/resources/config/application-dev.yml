@@ -32,9 +32,13 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=IvyModa;encrypt=false
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:sqlserver://localhost:1433;database=IVYMODA;encrypt=false
+    username: sa
+    password: 123456
+    #    url: jdbc:h2:mem:ivyModa #sử dụng H2 để làm DB test
+    #    driver-class-name: org.h2.Driver
+    #    username: sa
+    #    password: 123456
     hikari:
       poolName: Hikari
       auto-commit: false

@@ -95,7 +95,7 @@ spring:
     name: IvyModa
   docker:
     compose:
-      enabled: true
+      enabled: false #true(sau này khi sử dụng docker mới mở true)
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
