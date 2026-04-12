@@ -3,7 +3,7 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ivymoda</groupId>
+    <groupId>ivymoda</groupId>
     <artifactId>ivy-moda</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -31,7 +31,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>com.ivymoda.IvyModaApp</start-class>
+        <start-class>ivymoda.IvyModaApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx1G</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -80,12 +80,6 @@
     </properties>
 
     <dependencies>
-                  <!--      thư viện H2 để test DB-->
-        <dependency>
-          <groupId>com.h2database</groupId>
-          <artifactId>h2</artifactId>
-          <scope>runtime</scope>
-        </dependency>
         <dependency>
             <groupId>tech.jhipster</groupId>
             <artifactId>jhipster-framework</artifactId>
@@ -804,7 +798,7 @@
                         <defaultSchemaName/>
                         <username>${liquibase-plugin.username}</username>
                         <password>${liquibase-plugin.password}</password>
-                        <referenceUrl>hibernate:spring:com.ivymoda.domain?dialect=org.hibernate.dialect.SQLServer2012Dialect&amp;hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                        <referenceUrl>hibernate:spring:ivymoda.domain?dialect=org.hibernate.dialect.SQLServer2012Dialect&amp;hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>
                         <logging>debug</logging>
                         <contexts>!test</contexts>
@@ -856,7 +850,7 @@
             <properties>
                 <!-- default Spring profiles -->
                 <liquibase-plugin.password>yourStrong(!)Password</liquibase-plugin.password>
-                <liquibase-plugin.url>jdbc:sqlserver://localhost:1433;database=IvyModa</liquibase-plugin.url>
+                <liquibase-plugin.url>jdbc:sqlserver://localhost:1433;database=ivyModa</liquibase-plugin.url>
                 <liquibase-plugin.username>SA</liquibase-plugin.username>
                 <profile.test>test,testdev</profile.test>
                 <spring.profiles.active>dev${profile.tls}${profile.no-liquibase}</spring.profiles.active>
@@ -977,7 +971,7 @@
             <properties>
                 <!-- default Spring profiles -->
                 <liquibase-plugin.password>yourStrong(!)Password</liquibase-plugin.password>
-                <liquibase-plugin.url>jdbc:sqlserver://localhost:1433;database=IvyModa</liquibase-plugin.url>
+                <liquibase-plugin.url>jdbc:sqlserver://localhost:1433;database=ivyModa</liquibase-plugin.url>
                 <liquibase-plugin.username>SA</liquibase-plugin.username>
                 <profile.test>test,testprod</profile.test>
                 <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.e2e}${profile.no-liquibase}</spring.profiles.active>

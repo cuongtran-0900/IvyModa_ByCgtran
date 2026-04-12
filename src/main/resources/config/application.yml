@@ -92,10 +92,10 @@ management:
 
 spring:
   application:
-    name: IvyModa
+    name: ivyModa
   docker:
     compose:
-      enabled: false #true(sau này khi sử dụng docker mới mở true)
+      enabled: true
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
@@ -202,7 +202,7 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: IvyModa@localhost
+    from: ivyModa@localhost
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**

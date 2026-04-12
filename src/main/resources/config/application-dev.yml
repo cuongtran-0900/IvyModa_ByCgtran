@@ -18,7 +18,7 @@ logging:
     ROOT: DEBUG
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
-    com.ivymoda: DEBUG
+    ivymoda: DEBUG
 
 spring:
   devtools:
@@ -35,10 +35,6 @@ spring:
     url: jdbc:sqlserver://localhost:1433;database=IVYMODA;encrypt=false
     username: sa
     password: 123456
-    #    url: jdbc:h2:mem:ivyModa #sử dụng H2 để làm DB test
-    #    driver-class-name: org.h2.Driver
-    #    username: sa
-    #    password: 123456
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -91,7 +87,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: NDE2ZTQ4M2I3YWFlNmRkZmZlMjViMDRkZmI4YjRkM2Y4NWI2MmMwNjc0MzNmNjcxMWM2NzVjZWRjNmY5YzMwZWY0NjkwZjRmOTVhYWNkNTUwMTU0NTJhMWU4ZGJmN2YwMGEyMTgwMjgyMWZjOTZiODMwZDlhZTE4MmM1MGIxYTg=
+        base64-secret: N2ZiZjQ3NjU5OGFiZjFhOTM3ZTA2MzU3YTUzNjNkZmQ1OTg1YTU1NjZhYWFjNDkyODJmNTNhNzZiMDAxYTZmNjU3YzIzMWZkMWM0MzU2M2Y2MmNmNGNmYzQyYmY2OTcyMWExNWJlNjIyYTI3NjBiMzU3ZWRiYjNlMzc3YjVhM2E=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

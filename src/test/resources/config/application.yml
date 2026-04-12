@@ -15,7 +15,7 @@
 
 spring:
   application:
-    name: IvyModa
+    name: ivyModa
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: test
@@ -61,7 +61,7 @@ jhipster:
   clientApp:
     name: 'ivyModaApp'
   mail:
-    from: IvyModa@localhost.com
+    from: ivyModa@localhost.com
     base-url: http://127.0.0.1:8080
   logging:
     # To test json console appender
@@ -75,7 +75,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: NDE2ZTQ4M2I3YWFlNmRkZmZlMjViMDRkZmI4YjRkM2Y4NWI2MmMwNjc0MzNmNjcxMWM2NzVjZWRjNmY5YzMwZWY0NjkwZjRmOTVhYWNkNTUwMTU0NTJhMWU4ZGJmN2YwMGEyMTgwMjgyMWZjOTZiODMwZDlhZTE4MmM1MGIxYTg=
+        base64-secret: N2ZiZjQ3NjU5OGFiZjFhOTM3ZTA2MzU3YTUzNjNkZmQ1OTg1YTU1NjZhYWFjNDkyODJmNTNhNzZiMDAxYTZmNjU3YzIzMWZkMWM0MzU2M2Y2MmNmNGNmYzQyYmY2OTcyMWExNWJlNjIyYTI3NjBiMzU3ZWRiYjNlMzc3YjVhM2E=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 86400
