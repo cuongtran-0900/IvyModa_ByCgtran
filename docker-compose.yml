@@ -26,8 +26,8 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - MSSQL_PID=Express
-      - SA_PASSWORD=yourStrong(!)Password
-      - MSSQL_DATABASE=ivyModa
+      - SA_PASSWORD=123456
+      - MSSQL_DATABASE=IVYMODA
       - MSSQL_SLEEP=15
     ports:
       - '1434:1433'

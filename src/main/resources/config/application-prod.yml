@@ -33,9 +33,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=ivyModa;encrypt=false
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:sqlserver://localhost:1433;database=IVYMODA;encrypt=false
+    username: sa
+    password: 123456
     hikari:
       poolName: Hikari
       auto-commit: false
