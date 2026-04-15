@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -39,13 +37,8 @@ public class Category implements Serializable {
     private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "parent", "children" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "parent" }, allowSetters = true)
     private Category parent;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "parent", "children" }, allowSetters = true)
-    private Set<Category> children = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -111,37 +104,6 @@ public class Category implements Serializable {
 
     public Category parent(Category category) {
         this.setParent(category);
-        return this;
-    }
-
-    public Set<Category> getChildren() {
-        return this.children;
-    }
-
-    public void setChildren(Set<Category> categories) {
-        if (this.children != null) {
-            this.children.forEach(i -> i.setParent(null));
-        }
-        if (categories != null) {
-            categories.forEach(i -> i.setParent(this));
-        }
-        this.children = categories;
-    }
-
-    public Category children(Set<Category> categories) {
-        this.setChildren(categories);
-        return this;
-    }
-
-    public Category addChildren(Category category) {
-        this.children.add(category);
-        category.setParent(this);
-        return this;
-    }
-
-    public Category removeChildren(Category category) {
-        this.children.remove(category);
-        category.setParent(null);
         return this;
     }
 

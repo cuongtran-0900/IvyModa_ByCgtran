@@ -7,13 +7,15 @@
   "fields": [
     {
       "fieldName": "productSize",
-      "fieldType": "String",
-      "fieldValidateRules": ["required"]
+      "fieldType": "ProductSize",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "S,M,L,XL"
     },
     {
       "fieldName": "color",
-      "fieldType": "String",
-      "fieldValidateRules": ["required"]
+      "fieldType": "Color",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "RED,BLUE,BLACK,WHITE"
     },
     {
       "fieldName": "price",

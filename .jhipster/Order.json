@@ -13,13 +13,15 @@
     },
     {
       "fieldName": "status",
-      "fieldType": "String",
-      "fieldValidateRules": ["required"]
+      "fieldType": "Status",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PENDING,PROCESSING,SUCCESS,CANCELLED,REFUNDED"
     },
     {
       "fieldName": "paymentMethod",
-      "fieldType": "String",
-      "fieldValidateRules": ["required"]
+      "fieldType": "PaymentMethod",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CASH,CARD,COD"
     },
     {
       "fieldName": "shippingAddress",

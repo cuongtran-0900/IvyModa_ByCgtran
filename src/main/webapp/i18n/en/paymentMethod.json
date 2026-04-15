@@ -1,0 +1,10 @@
+{
+  "ivyModaApp": {
+    "PaymentMethod": {
+      "null": "",
+      "CASH": "CASH",
+      "CARD": "CARD",
+      "COD": "COD"
+    }
+  }
+}

@@ -11,6 +11,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ivymoda.IntegrationTest;
 import ivymoda.domain.Order;
+import ivymoda.domain.enumeration.PaymentMethod;
+import ivymoda.domain.enumeration.Status;
 import ivymoda.repository.OrderRepository;
 import ivymoda.service.dto.OrderDTO;
 import ivymoda.service.mapper.OrderMapper;
@@ -39,11 +41,11 @@ class OrderResourceIT {
     private static final BigDecimal DEFAULT_TOTAL_AMOUNT = new BigDecimal(1);
     private static final BigDecimal UPDATED_TOTAL_AMOUNT = new BigDecimal(2);
 
-    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
-    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+    private static final Status DEFAULT_STATUS = Status.PENDING;
+    private static final Status UPDATED_STATUS = Status.PROCESSING;
 
-    private static final String DEFAULT_PAYMENT_METHOD = "AAAAAAAAAA";
-    private static final String UPDATED_PAYMENT_METHOD = "BBBBBBBBBB";
+    private static final PaymentMethod DEFAULT_PAYMENT_METHOD = PaymentMethod.CASH;
+    private static final PaymentMethod UPDATED_PAYMENT_METHOD = PaymentMethod.CARD;
 
     private static final String DEFAULT_SHIPPING_ADDRESS = "AAAAAAAAAA";
     private static final String UPDATED_SHIPPING_ADDRESS = "BBBBBBBBBB";
@@ -237,8 +239,8 @@ class OrderResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(order.getId().intValue())))
             .andExpect(jsonPath("$.[*].totalAmount").value(hasItem(sameNumber(DEFAULT_TOTAL_AMOUNT))))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS)))
-            .andExpect(jsonPath("$.[*].paymentMethod").value(hasItem(DEFAULT_PAYMENT_METHOD)))
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].paymentMethod").value(hasItem(DEFAULT_PAYMENT_METHOD.toString())))
             .andExpect(jsonPath("$.[*].shippingAddress").value(hasItem(DEFAULT_SHIPPING_ADDRESS)));
     }
 
@@ -255,8 +257,8 @@ class OrderResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(order.getId().intValue()))
             .andExpect(jsonPath("$.totalAmount").value(sameNumber(DEFAULT_TOTAL_AMOUNT)))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS))
-            .andExpect(jsonPath("$.paymentMethod").value(DEFAULT_PAYMENT_METHOD))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.paymentMethod").value(DEFAULT_PAYMENT_METHOD.toString()))
             .andExpect(jsonPath("$.shippingAddress").value(DEFAULT_SHIPPING_ADDRESS));
     }
 

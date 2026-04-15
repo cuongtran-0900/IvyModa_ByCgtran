@@ -143,8 +143,12 @@ export const Order = () => {
                     </Button>
                   </td>
                   <td>{order.totalAmount}</td>
-                  <td>{order.status}</td>
-                  <td>{order.paymentMethod}</td>
+                  <td>
+                    <Translate contentKey={`ivyModaApp.Status.${order.status}`} />
+                  </td>
+                  <td>
+                    <Translate contentKey={`ivyModaApp.PaymentMethod.${order.paymentMethod}`} />
+                  </td>
                   <td>{order.shippingAddress}</td>
                   <td>{order.user ? <Link to={`/user-account/${order.user.id}`}>{order.user.id}</Link> : ''}</td>
                   <td className="text-end">

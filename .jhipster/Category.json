@@ -29,14 +29,6 @@
       "relationshipName": "parent",
       "relationshipSide": "left",
       "relationshipType": "many-to-one"
-    },
-    {
-      "otherEntityField": "name",
-      "otherEntityName": "category",
-      "otherEntityRelationshipName": "parent",
-      "relationshipName": "children",
-      "relationshipSide": "left",
-      "relationshipType": "one-to-many"
     }
   ],
   "searchEngine": "no",

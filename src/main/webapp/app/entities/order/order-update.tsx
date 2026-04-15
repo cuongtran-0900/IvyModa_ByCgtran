@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getUserAccounts } from 'app/entities/user-account/user-account.reducer';
+import { Status } from 'app/shared/model/enumerations/status.model';
+import { PaymentMethod } from 'app/shared/model/enumerations/payment-method.model';
 import { createEntity, getEntity, reset, updateEntity } from './order.reducer';
 
 export const OrderUpdate = () => {
@@ -22,6 +24,8 @@ export const OrderUpdate = () => {
   const loading = useAppSelector(state => state.order.loading);
   const updating = useAppSelector(state => state.order.updating);
   const updateSuccess = useAppSelector(state => state.order.updateSuccess);
+  const statusValues = Object.keys(Status);
+  const paymentMethodValues = Object.keys(PaymentMethod);
 
   const handleClose = () => {
     navigate(`/order${location.search}`);
@@ -68,6 +72,8 @@ export const OrderUpdate = () => {
     isNew
       ? {}
       : {
+          status: 'PENDING',
+          paymentMethod: 'CASH',
           ...orderEntity,
           user: orderEntity?.user?.id,
         };
@@ -108,26 +114,26 @@ export const OrderUpdate = () => {
                   validate: v => isNumber(v) || translate('entity.validation.number'),
                 }}
               />
-              <ValidatedField
-                label={translate('ivyModaApp.order.status')}
-                id="order-status"
-                name="status"
-                data-cy="status"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                }}
-              />
+              <ValidatedField label={translate('ivyModaApp.order.status')} id="order-status" name="status" data-cy="status" type="select">
+                {statusValues.map(status => (
+                  <option value={status} key={status}>
+                    {translate(`ivyModaApp.Status.${status}`)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 label={translate('ivyModaApp.order.paymentMethod')}
                 id="order-paymentMethod"
                 name="paymentMethod"
                 data-cy="paymentMethod"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                }}
-              />
+                type="select"
+              >
+                {paymentMethodValues.map(paymentMethod => (
+                  <option value={paymentMethod} key={paymentMethod}>
+                    {translate(`ivyModaApp.PaymentMethod.${paymentMethod}`)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 label={translate('ivyModaApp.order.shippingAddress')}
                 id="order-shippingAddress"

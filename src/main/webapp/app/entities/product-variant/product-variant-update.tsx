@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities as getProducts } from 'app/entities/product/product.reducer';
+import { ProductSize } from 'app/shared/model/enumerations/product-size.model';
+import { Color } from 'app/shared/model/enumerations/color.model';
 import { createEntity, getEntity, reset, updateEntity } from './product-variant.reducer';
 
 export const ProductVariantUpdate = () => {
@@ -22,6 +24,8 @@ export const ProductVariantUpdate = () => {
   const loading = useAppSelector(state => state.productVariant.loading);
   const updating = useAppSelector(state => state.productVariant.updating);
   const updateSuccess = useAppSelector(state => state.productVariant.updateSuccess);
+  const productSizeValues = Object.keys(ProductSize);
+  const colorValues = Object.keys(Color);
 
   const handleClose = () => {
     navigate(`/product-variant${location.search}`);
@@ -71,6 +75,8 @@ export const ProductVariantUpdate = () => {
     isNew
       ? {}
       : {
+          productSize: 'S',
+          color: 'RED',
           ...productVariantEntity,
           product: productVariantEntity?.product?.id,
         };
@@ -105,21 +111,27 @@ export const ProductVariantUpdate = () => {
                 id="product-variant-productSize"
                 name="productSize"
                 data-cy="productSize"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                }}
-              />
+                type="select"
+              >
+                {productSizeValues.map(productSize => (
+                  <option value={productSize} key={productSize}>
+                    {translate(`ivyModaApp.ProductSize.${productSize}`)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 label={translate('ivyModaApp.productVariant.color')}
                 id="product-variant-color"
                 name="color"
                 data-cy="color"
-                type="text"
-                validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
-                }}
-              />
+                type="select"
+              >
+                {colorValues.map(color => (
+                  <option value={color} key={color}>
+                    {translate(`ivyModaApp.Color.${color}`)}
+                  </option>
+                ))}
+              </ValidatedField>
               <ValidatedField
                 label={translate('ivyModaApp.productVariant.price')}
                 id="product-variant-price"

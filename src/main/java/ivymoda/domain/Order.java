@@ -1,6 +1,8 @@
 package ivymoda.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ivymoda.domain.enumeration.PaymentMethod;
+import ivymoda.domain.enumeration.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -32,12 +34,14 @@ public class Order implements Serializable {
     private BigDecimal totalAmount;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private String status;
+    private Status status;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "payment_method", nullable = false)
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
 
     @NotNull
     @Column(name = "shipping_address", nullable = false)
@@ -80,29 +84,29 @@ public class Order implements Serializable {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return this.status;
     }
 
-    public Order status(String status) {
+    public Order status(Status status) {
         this.setStatus(status);
         return this;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public String getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return this.paymentMethod;
     }
 
-    public Order paymentMethod(String paymentMethod) {
+    public Order paymentMethod(PaymentMethod paymentMethod) {
         this.setPaymentMethod(paymentMethod);
         return this;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

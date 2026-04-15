@@ -53,7 +53,7 @@ public class Product implements Serializable {
     private Boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "parent", "children" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "parent" }, allowSetters = true)
     private Category category;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

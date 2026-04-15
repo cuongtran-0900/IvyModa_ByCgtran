@@ -5,8 +5,6 @@ import static ivymoda.domain.CategoryTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import ivymoda.web.rest.TestUtil;
-import java.util.HashSet;
-import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 class CategoryTest {
@@ -35,27 +33,5 @@ class CategoryTest {
 
         category.parent(null);
         assertThat(category.getParent()).isNull();
-    }
-
-    @Test
-    void childrenTest() {
-        Category category = getCategoryRandomSampleGenerator();
-        Category categoryBack = getCategoryRandomSampleGenerator();
-
-        category.addChildren(categoryBack);
-        assertThat(category.getChildren()).containsOnly(categoryBack);
-        assertThat(categoryBack.getParent()).isEqualTo(category);
-
-        category.removeChildren(categoryBack);
-        assertThat(category.getChildren()).doesNotContain(categoryBack);
-        assertThat(categoryBack.getParent()).isNull();
-
-        category.children(new HashSet<>(Set.of(categoryBack)));
-        assertThat(category.getChildren()).containsOnly(categoryBack);
-        assertThat(categoryBack.getParent()).isEqualTo(category);
-
-        category.setChildren(new HashSet<>());
-        assertThat(category.getChildren()).doesNotContain(categoryBack);
-        assertThat(categoryBack.getParent()).isNull();
     }
 }

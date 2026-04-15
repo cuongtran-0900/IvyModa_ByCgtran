@@ -12,18 +12,16 @@ public class ProductVariantTestSamples {
     private static final AtomicInteger intCount = new AtomicInteger(random.nextInt() + (2 * Short.MAX_VALUE));
 
     public static ProductVariant getProductVariantSample1() {
-        return new ProductVariant().id(1L).productSize("productSize1").color("color1").stock(1).imageUrl("imageUrl1");
+        return new ProductVariant().id(1L).stock(1).imageUrl("imageUrl1");
     }
 
     public static ProductVariant getProductVariantSample2() {
-        return new ProductVariant().id(2L).productSize("productSize2").color("color2").stock(2).imageUrl("imageUrl2");
+        return new ProductVariant().id(2L).stock(2).imageUrl("imageUrl2");
     }
 
     public static ProductVariant getProductVariantRandomSampleGenerator() {
         return new ProductVariant()
             .id(longCount.incrementAndGet())
-            .productSize(UUID.randomUUID().toString())
-            .color(UUID.randomUUID().toString())
             .stock(intCount.incrementAndGet())
             .imageUrl(UUID.randomUUID().toString());
     }

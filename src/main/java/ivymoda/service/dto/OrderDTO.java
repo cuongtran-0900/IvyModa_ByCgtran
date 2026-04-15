@@ -1,5 +1,7 @@
 package ivymoda.service.dto;
 
+import ivymoda.domain.enumeration.PaymentMethod;
+import ivymoda.domain.enumeration.Status;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,10 +19,10 @@ public class OrderDTO implements Serializable {
     private BigDecimal totalAmount;
 
     @NotNull
-    private String status;
+    private Status status;
 
     @NotNull
-    private String paymentMethod;
+    private PaymentMethod paymentMethod;
 
     @NotNull
     private String shippingAddress;
@@ -43,19 +45,19 @@ public class OrderDTO implements Serializable {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public String getPaymentMethod() {
+    public PaymentMethod getPaymentMethod() {
         return paymentMethod;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 

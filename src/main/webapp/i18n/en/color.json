@@ -1,0 +1,11 @@
+{
+  "ivyModaApp": {
+    "Color": {
+      "null": "",
+      "RED": "RED",
+      "BLUE": "BLUE",
+      "BLACK": "BLACK",
+      "WHITE": "WHITE"
+    }
+  }
+}

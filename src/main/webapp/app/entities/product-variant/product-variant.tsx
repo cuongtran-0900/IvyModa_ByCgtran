@@ -151,8 +151,12 @@ export const ProductVariant = () => {
                       {productVariant.id}
                     </Button>
                   </td>
-                  <td>{productVariant.productSize}</td>
-                  <td>{productVariant.color}</td>
+                  <td>
+                    <Translate contentKey={`ivyModaApp.ProductSize.${productVariant.productSize}`} />
+                  </td>
+                  <td>
+                    <Translate contentKey={`ivyModaApp.Color.${productVariant.color}`} />
+                  </td>
                   <td>{productVariant.price}</td>
                   <td>{productVariant.stock}</td>
                   <td>{productVariant.imageUrl}</td>

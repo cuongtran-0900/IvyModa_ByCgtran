@@ -1,0 +1,12 @@
+{
+  "ivyModaApp": {
+    "Status": {
+      "null": "",
+      "PENDING": "PENDING",
+      "PROCESSING": "PROCESSING",
+      "SUCCESS": "SUCCESS",
+      "CANCELLED": "CANCELLED",
+      "REFUNDED": "REFUNDED"
+    }
+  }
+}

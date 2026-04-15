@@ -1,5 +1,7 @@
 package ivymoda.service.dto;
 
+import ivymoda.domain.enumeration.Color;
+import ivymoda.domain.enumeration.ProductSize;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -14,10 +16,10 @@ public class ProductVariantDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private String productSize;
+    private ProductSize productSize;
 
     @NotNull
-    private String color;
+    private Color color;
 
     @NotNull
     private BigDecimal price;
@@ -41,19 +43,19 @@ public class ProductVariantDTO implements Serializable {
         this.id = id;
     }
 
-    public String getProductSize() {
+    public ProductSize getProductSize() {
         return productSize;
     }
 
-    public void setProductSize(String productSize) {
+    public void setProductSize(ProductSize productSize) {
         this.productSize = productSize;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

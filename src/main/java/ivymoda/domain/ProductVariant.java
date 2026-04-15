@@ -1,6 +1,8 @@
 package ivymoda.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ivymoda.domain.enumeration.Color;
+import ivymoda.domain.enumeration.ProductSize;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -26,12 +28,14 @@ public class ProductVariant implements Serializable {
     private Long id;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "product_size", nullable = false)
-    private String productSize;
+    private ProductSize productSize;
 
     @NotNull
+    @Enumerated(EnumType.STRING)
     @Column(name = "color", nullable = false)
-    private String color;
+    private Color color;
 
     @NotNull
     @Column(name = "price", precision = 21, scale = 2, nullable = false)
@@ -68,29 +72,29 @@ public class ProductVariant implements Serializable {
         this.id = id;
     }
 
-    public String getProductSize() {
+    public ProductSize getProductSize() {
         return this.productSize;
     }
 
-    public ProductVariant productSize(String productSize) {
+    public ProductVariant productSize(ProductSize productSize) {
         this.setProductSize(productSize);
         return this;
     }
 
-    public void setProductSize(String productSize) {
+    public void setProductSize(ProductSize productSize) {
         this.productSize = productSize;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return this.color;
     }
 
-    public ProductVariant color(String color) {
+    public ProductVariant color(Color color) {
         this.setColor(color);
         return this;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

@@ -11,6 +11,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import ivymoda.IntegrationTest;
 import ivymoda.domain.ProductVariant;
+import ivymoda.domain.enumeration.Color;
+import ivymoda.domain.enumeration.ProductSize;
 import ivymoda.repository.ProductVariantRepository;
 import ivymoda.service.dto.ProductVariantDTO;
 import ivymoda.service.mapper.ProductVariantMapper;
@@ -36,11 +38,11 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class ProductVariantResourceIT {
 
-    private static final String DEFAULT_PRODUCT_SIZE = "AAAAAAAAAA";
-    private static final String UPDATED_PRODUCT_SIZE = "BBBBBBBBBB";
+    private static final ProductSize DEFAULT_PRODUCT_SIZE = ProductSize.S;
+    private static final ProductSize UPDATED_PRODUCT_SIZE = ProductSize.M;
 
-    private static final String DEFAULT_COLOR = "AAAAAAAAAA";
-    private static final String UPDATED_COLOR = "BBBBBBBBBB";
+    private static final Color DEFAULT_COLOR = Color.RED;
+    private static final Color UPDATED_COLOR = Color.BLUE;
 
     private static final BigDecimal DEFAULT_PRICE = new BigDecimal(1);
     private static final BigDecimal UPDATED_PRICE = new BigDecimal(2);
@@ -280,8 +282,8 @@ class ProductVariantResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(productVariant.getId().intValue())))
-            .andExpect(jsonPath("$.[*].productSize").value(hasItem(DEFAULT_PRODUCT_SIZE)))
-            .andExpect(jsonPath("$.[*].color").value(hasItem(DEFAULT_COLOR)))
+            .andExpect(jsonPath("$.[*].productSize").value(hasItem(DEFAULT_PRODUCT_SIZE.toString())))
+            .andExpect(jsonPath("$.[*].color").value(hasItem(DEFAULT_COLOR.toString())))
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].stock").value(hasItem(DEFAULT_STOCK)))
             .andExpect(jsonPath("$.[*].imageUrl").value(hasItem(DEFAULT_IMAGE_URL)))
@@ -300,8 +302,8 @@ class ProductVariantResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(productVariant.getId().intValue()))
-            .andExpect(jsonPath("$.productSize").value(DEFAULT_PRODUCT_SIZE))
-            .andExpect(jsonPath("$.color").value(DEFAULT_COLOR))
+            .andExpect(jsonPath("$.productSize").value(DEFAULT_PRODUCT_SIZE.toString()))
+            .andExpect(jsonPath("$.color").value(DEFAULT_COLOR.toString()))
             .andExpect(jsonPath("$.price").value(sameNumber(DEFAULT_PRICE)))
             .andExpect(jsonPath("$.stock").value(DEFAULT_STOCK))
             .andExpect(jsonPath("$.imageUrl").value(DEFAULT_IMAGE_URL))
