@@ -61,6 +61,7 @@ public class CacheConfiguration {
             createCache(cm, ivymoda.domain.Order.class.getName());
             createCache(cm, ivymoda.domain.Order.class.getName() + ".items");
             createCache(cm, ivymoda.domain.OrderItem.class.getName());
+            createCache(cm, ivymoda.domain.Category.class.getName() + ".children");
             // jhipster-needle-caffeine-add-entry
         };
     }

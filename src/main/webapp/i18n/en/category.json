@@ -21,7 +21,8 @@
       "name": "Name",
       "slug": "Slug",
       "isActive": "Is Active",
-      "parent": "Parent"
+      "parent": "Parent",
+      "children": "Children"
     }
   }
 }
