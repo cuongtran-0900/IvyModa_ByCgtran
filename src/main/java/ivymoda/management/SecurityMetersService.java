@@ -1,5 +1,7 @@
 package ivymoda.management;
 
+// class này sẽ đếm có bao nhiêu lỗi token khác nhau
+
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.stereotype.Service;
